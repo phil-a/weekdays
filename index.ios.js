@@ -1,52 +1,33 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
-'use strict';
-import React, {
-  AppRegistry,
-  Component,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+// Imports
+var React = require('react-native');
+var AppRegistry = React.AppRegistry;
+var Text = React.Text;
+var View = React.View;
+var StyleSheet = React.StyleSheet;
 
-class weekdays extends Component {
-  render() {
+// Create a react component
+var Weekdays = React.createClass({
+  render: function() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
+        <Text>
+          Days of the week:
         </Text>
       </View>
     );
   }
-}
+});
 
-const styles = StyleSheet.create({
+// Style react component
+var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    alignItems: 'center'
+  }
 });
 
-AppRegistry.registerComponent('weekdays', () => weekdays);
+// Show react component on the screen
+AppRegistry.registerComponent('weekdays', function() {
+  return Weekdays
+});
