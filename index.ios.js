@@ -4,6 +4,7 @@ var AppRegistry = React.AppRegistry;
 var Text = React.Text;
 var View = React.View;
 var StyleSheet = React.StyleSheet;
+var Moment = require('moment');
 var DayItem = require('./src/day-item');
 
 var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -13,12 +14,19 @@ var Weekdays = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
-        <Text>
-          Days of the week:
-        </Text>
-        <DayItem day={DAYS[0]} />
+        {this.days()}
       </View>
     );
+  },
+  days: function() {
+    var daysItems = [];
+    for(var i = 0; i < 7; i++){
+      var day = Moment().add(i, 'days').format('dddd');
+      daysItems.push(
+        <DayItem day={day} daysUntil={i} />
+      )
+    }
+    return daysItems
   }
 });
 
